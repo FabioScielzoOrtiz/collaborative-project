@@ -24,5 +24,6 @@ def processing(df):
 
 madrid_houses_df = pl.read_csv('data/madrid_houses.csv')
 madrid_houses_df, p1, p2, p3, response, quant_predictors, cat_predictors = processing(madrid_houses_df)
+madrid_houses_df = madrid_houses_df.filter(pl.col('buy_price') > 3000000)
 madrid_houses_df.write_csv('./data/madrid_houses_processed.csv', separator=",")
 print('Execution finished correctly.')
